@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de IMC</title>
+</head>
+<body>
+    <header>
+        <h1>Calculo de Indice de Masa Corporal</h1>
+        <button onclick="calcular()">Calcular</button>
+    </header>
+    <br>
+    <p>Su IMC es de: <span id="imc"></span></p>
+    <br>
+    <p><span id="resultado"></span></p>
+    <br>
+    <script type="text/javascript">
+        function calcular(){
+            let nombre = prompt("Ingrese su nombre: ");
+            let peso = prompt("Ingrese su peso en kilogramos: ");
+            let altura = prompt("Ingrese su altura en metros: ");
+            let imc = peso / (altura * altura);
+            document.getElementById("imc").innerHTML = imc;
+            if(imc < 18.5){
+                var resultado = "usted tiene bajo peso."
+            }
+            else if (imc >= 18.5 && imc <= 24.9){
+                var resultado = "usted tiene un peso normal."
+            }
+            else if (imc >= 24.9 && imc <= 29.9){
+                var resultado = "usted tiene sobrepedo."
+            }
+            else{
+                var resultado = "usted tiene obesidad."
+            }   
+            document.getElementById("resultado").innerHTML = nombre + " el resultado del calculo de IMC nos indica que " + resultado;  
+        } 
+    </script>
+</body>
+</html>
