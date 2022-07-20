@@ -4,103 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Tarea de JS clase 10</title>
+    <title>Calculo de IMC</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Ejercicio clase 10</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="clase11.html">Ir a ejercicios Clase 11</a>
-              </li>
-          </div>
-        </div>
-      </nav>
-    <div>
-        <h1>Ejercicio1</h1>
-        <button onclick="ejercicio1()">Ver resultado</button>
-    </div>
-
-    <div>
-        <h1>Ejercicio2</h1>
-        <button onclick="ejercicio2()">Ver resultado</button>
-    </div>
-
-    <div>
-        <h1>Ejercicio3</h1>
-        <button onclick="ejercicio3()">Ver resultado</button>
-    </div>
-
-    <div>
-        <h1>Ejercicio4</h1>
-        <button onclick="ejercicio4()">Ver resultado</button>
-    </div>
-
-    <div>
-        <h1>Ejercicio5</h1>
-        <button onclick="ejercicio5()">Ver resultado</button>
-    </div>
-    <script>
-        
-        function ejercicio1(){
-            let nombre = "Programación" + " Fácil. ";
-            let saludo = "Les doy la bienvenida a ";
-            let info = "Mi nombre es " + "Gay Federico."
-            let fraseCompleta = saludo + nombre + info;
-            console.log(fraseCompleta);
-            alert(fraseCompleta);
-        }
-        
-        function ejercicio2(){
-            let frase = "JavaScript " + "es un lenguaje " + "esencial para crear " + "sitios web poderosos.";
-            console.log(frase);
-            alert(frase);
-        }
-
-        function ejercicio3(){
-            let numeroString1 = "10";
-            let numeroString2 = "20";
-            let numeroString3 = "30";
-            let inicio = "Los siguientes numeros: "
-            let fin = "son multiplos de 10."
-            let concatenaNumeros = inicio + numeroString1 + " " + numeroString2 + " " + numeroString3 + " " + fin;
-            console.log(concatenaNumeros);
-            alert(concatenaNumeros);
-        }
-
-        function ejercicio4(){
-            var nombre1 = prompt("Cual es tu nombre: ");
-            var edad = prompt("Cual es tu edad: ");
-            var concatenamos = "Mi nombre es " + nombre1 + " y tengo " + edad + " años";
-            console.log(concatenamos);
-            alert(concatenamos);
-        }
-
-        function ejercicio5(){
-            let edad;
-            edad = prompt("Indica tu edad");
-            var sexo;
-            sexo = prompt("Indica si eres hombre o mujer");
-            if (sexo == 'hombre' && edad >= 18){
-                alert("Puedes entrar, eres mayor de edad.");
-            } 
-            else if (sexo == 'mujer' && edad >= 20){
-                alert("Puedes entrar, eres mayor de edad.");
+    <header>
+        <h1>Calculo de Indice de Masa Corporal</h1>
+        <button onclick="calcular()">Calcular</button>
+    </header>
+    <br>
+    <p>Su IMC es de: <span id="imc"></span></p>
+    <br>
+    <p><span id="resultado"></span></p>
+    <br>
+    <script type="text/javascript">
+        function calcular(){
+            let nombre = prompt("Ingrese su nombre: ");
+            let peso = prompt("Ingrese su peso en kilogramos: ");
+            let altura = prompt("Ingrese su altura en metros: ");
+            let imc = peso / (altura * altura);
+            document.getElementById("imc").innerHTML = imc;
+            if(imc < 18.5){
+                var resultado = "usted tiene bajo peso."
             }
-            else {
-                alert("No puedes entrar, eres menor de edad.");
-            } 
-        }
-
+            else if (imc >= 18.5 && imc <= 24.9){
+                var resultado = "usted tiene un peso normal."
+            }
+            else if (imc >= 24.9 && imc <= 29.9){
+                var resultado = "usted tiene sobrepedo."
+            }
+            else{
+                var resultado = "usted tiene obesidad."
+            }   
+            document.getElementById("resultado").innerHTML = nombre + " el resultado del calculo de IMC nos indica que " + resultado;  
+        } 
     </script>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
